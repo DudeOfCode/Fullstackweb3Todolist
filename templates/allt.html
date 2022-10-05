@@ -1,0 +1,50 @@
+<center>
+    <h3>Hello All list</h3>
+</center>
+<a href="/home">Home</a>
+<p></p>
+<center>
+    <table style="width:50%;border:2px solid black;">
+
+        <tr style="border:2px solid black;">
+            <th style="border:2px solid black;">Index</th>
+            <th style="border:2px solid black;">Actions</th>
+            <th style="border:2px solid black;">Days</th>
+            <th style="border:2px solid black;">Months</th>
+            <th style="border:2px solid black;">Years</th>
+        </tr>
+
+        <tr style="border:2px solid black;">
+            <td style="border:2px solid black;">
+                <ol style="margin-top:14px;">
+                    {%for (bats,rats,cats,fats) in bat %}
+                    <center>
+                        <li></li>
+                    </center>
+                    {%endfor%}
+                </ol>
+            </td>
+
+            <td style="border:2px solid black;">
+                {%for (bats,rats,cats,fats) in bat %}
+                <center>{{bats}}</center>
+                {%endfor%}
+            </td>
+            <td style="border:2px solid black;">
+                {%for (bats,rats,cats,fats) in bat %}
+                <center>{{rats}}</center>
+                {%endfor%}
+            </td>
+            <td style="border:2px solid black;">
+                {%for (bats,rats,cats,fats) in bat %}
+                <center>{{cats}}</center>
+                {%endfor%}
+            </td>
+            <td style="border:2px solid black;">
+                {%for (bats,rats,cats,fats) in bat %}
+                <center>{{fats}}</center>
+                {%endfor%}
+            </td>
+        </tr>
+    </table>
+</center>

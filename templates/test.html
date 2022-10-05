@@ -1,0 +1,37 @@
+<a href="/home">Home</a>
+<p></p>
+
+<body style="background-color:rgb(209, 209, 17);">
+    <div>
+
+        <form class="grid" action="/extra" method="POST">
+            <label style="color:blue;"><b>Write an Action</b></label>
+            <center><input type="text" style="border-radius:100px;color:blue;" name="Acy" required></center>
+
+            <label style="color:blue;"><b>Write a Day</b></label>
+            <center><input type="number" style="border-radius:100px;color:blue;" min="1" max="31" name="Day" required>
+            </center>
+
+            <label style="color:blue;"><b>Write a Month</b></label>
+            <center><input type="number" style="border-radius:100px;color:blue;" min="1" max="12" name="May" required>
+            </center>
+            <label style="color:blue;"><b>Write a Year</b></label>
+            <center><input type="number" style="border-radius:100px;color:blue;" min="2022" name="Yay" required>
+            </center>
+            <p></p>
+            <center><button type="Submit" style="border-radius:15px;">
+                    <h2>Submit</h2>
+
+                </button></center>
+
+            {%if say%}
+            <center>
+
+                <h3 style="color:green;">Newly added: {{say}}</h3>
+            </center>
+
+            {%endif%}
+        </form>
+
+    </div>
+</body>

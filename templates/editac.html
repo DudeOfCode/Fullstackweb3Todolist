@@ -1,0 +1,22 @@
+<a href="/home">Home</a>
+<p></p><a href="/edit">Back to Edit Options</a>
+<center>
+    <h3>Edit Action</h3>
+</center>
+<form class="grid" action="/reditac" method="POST">
+
+    <label>Write the index you wish to edit</label>
+    <center><input type="number" name="index" style="border-radius:100px;" min="1" max="{{tor}}" required></center>
+    <label>Type in the new acion</label>
+    <center><input type="text" name="action" style="border-radius:100px;" placeholder="Type in action" required>
+    </center>
+    <p></p>
+    <center><button style="border-radius:100px;" type="Submit">
+            <h2>Edit Action</h2>
+        </button></center>
+    <p></p>
+    {%if get%}
+    <center>You have changed the action in index {{index}} to {{sha}}</center>
+    <center>The index {{index}} is now {{get}}</center>
+    {%endif%}
+</form>

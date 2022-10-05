@@ -1,0 +1,18 @@
+<a href="/home">Home</a>
+<center>
+    <h4>Remove from list</h4>
+</center>
+<form class="grid" action="/exrem" method="POST">
+    <label>Index of what you wish to remove</label>
+    <center><input type="number" min="1" max="{{tot}}" style="border-radius:100px;" name="Inde" required></center>
+    <p></p>
+    <center><button type="Submit">REMOVE</button></center>
+    {%if remd %}
+    <center>
+        <h2>You have successfully removed the item in number {{index}} index from your list</h2>
+    </center>
+    <center>
+        <h2>You now have {{tot}} items on your list</h2>
+    </center>
+    {%endif%}
+</form>

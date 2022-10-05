@@ -1,0 +1,27 @@
+<a href="/home">Home</a>
+<p></p><a href="/edit">Back to Edit Options</a>
+<center>
+    <h3>EDIT WHOLE ITEM ON LIST</h3>
+</center>
+<form class="grid" action="/editwhole" method="POST">
+    <label>Type in thi index you wish to edit</label>
+    <center><input name="index" type="number" style="border-radius:100px;" min="1" max="{{tor}}" required></center>
+    <label>Type in an Event name</label>
+    <center><input name="Action" type="text" style="border-radius:100px;" required></center>
+    <label>Type in a day</label>
+    <center><input name="Day" type="number" style="border-radius:100px;" min="1" max="31" required></center>
+    <label>Type in a month</label>
+    <center><input name="Month" type="number" style="border-radius:100px;" min="1" max="12" required></center>
+    <label>Type a year</label>
+    <center><input name="Year" type="number" style="border-radius:100px;" min="2022" required></center>
+    <p></p>
+    <center><button type="Submit" style="border-radius:100px;">
+            <h3>Edit</h3>
+        </button></center>
+    <p>
+    </p>
+    {%if get%}
+    <center>You have successfully edited index {{index}}</center>
+    <center>Your index {{index}} now looks like this : {{get}}</center>
+    {%endif%}
+</form>

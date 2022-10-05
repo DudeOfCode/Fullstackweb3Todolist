@@ -1,0 +1,19 @@
+<a href="/home">Home</a>
+<center>
+    <h3 style="color:blue">Fetch from List</h3>
+</center>
+<div>
+    <form class="grid" action="/deste" method="POST">
+        <label>Type the index you want to get</label>
+        <center><input type="number" style="border-radius:100px;" min="1" max="{{tot}}" name="list" required></center>
+        <p></p>
+        <center><button style="border-radius:10px;background-color:green;" type="Submit">
+                <h3>FETCH</h3>
+            </button></center>
+        {%if got%}
+        <center>
+            <h2>The saved item at index {{index}} is {{got}}</h2>
+        </center>
+        {%endif%}
+    </form>
+</div>
