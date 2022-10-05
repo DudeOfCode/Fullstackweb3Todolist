@@ -1,12 +1,13 @@
-import array
+#This is meant to import the front end framework (Flask framework)
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 # import config
+#The codes below import and initiate web3.py
 from web3 import Web3
 
 
-url = "HTTP://127.0.0.1:7545"
+url = "HTTP://127.0.0.1:7545" #the url here belongs to ganache gui
 w3 = Web3(Web3.HTTPProvider(url))
 print(w3.isConnected())
 from solcx import compile_standard, install_solc
@@ -34,14 +35,15 @@ abi = Sol_compiled["contracts"]["test.sol"]["TodoList"]["abi"]
 bytecode = Sol_compiled["contracts"]["test.sol"]["TodoList"]["evm"]["bytecode"][
     "object"
 ]
+#The lines of code below will deploy the contract
+Todo = w3.eth.contract(abi=abi, bytecode=bytecode)
+tx_hash = Todo.constructor().transact()
+tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+cont = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+# address = "0x1E5641980a21d9214B418cc72cE39D8a8F3Ef782"
+# cont = w3.eth.contract(address=address, abi=abi)
 
-# Todo = w3.eth.contract(abi=abi, bytecode=bytecode)
-# tx_hash = Todo.constructor().transact()
-# tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-# cont = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
-address = "0x1E5641980a21d9214B418cc72cE39D8a8F3Ef782"
-cont = w3.eth.contract(address=address, abi=abi)
-
+#All the codes below are meant for the frontend 
 
 @app.route("/")
 @app.route("/home")
@@ -83,7 +85,7 @@ def Getfromlist2():
     index = int(get["list"])
 
     got = cont.functions.getfromlist(index).call()
-    # notgot = cont.functions.notintod(index).call()
+   
 
     return render_template("dest.html", got=got, index=index, tot=tot)
 
